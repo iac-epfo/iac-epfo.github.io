@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IA Liquidation Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Header</p>
+          <h1>IA Liquidation</h1>
+          <p class="sidebar-copy">
+            Can provide date here (as on xyz date)
+          </p>
+        </div>
+
+        <nav class="page-nav" id="page-nav"></nav>
+
+        <section class="filters">
+          <label for="zone-filter">Zone</label>
+          <select id="zone-filter">
+            <option value="All">All zones</option>
+          </select>
+
+          <label for="slab-filter">Amount slab</label>
+          <select id="slab-filter">
+            <option value="All">All slabs</option>
+          </select>
+
+          <label for="category-filter">Office size</label>
+          <select id="category-filter">
+            <option value="All">All categories</option>
+          </select>
+        </section>
+
+        <section class="sidebar-footnote">
+          <p id="generated-meta"></p>
+        </section>
+      </aside>
+
+      <main class="dashboard">
+        <section class="hero-card">
+          <div>
+            <p class="eyebrow">Recovered from PBIX layout</p>
+            <h2>Five dashboard views, one static bundle</h2>
+          </div>
+          <p class="hero-copy">
+            The dashboard mirrors the original report structure while loading from local JSON only.
+          </p>  
+        </section>
+
+        <section class="kpi-grid" id="kpi-grid"></section>
+
+        <section class="content-grid">
+          <article class="panel panel-wide" data-page="Dashboard - Overview">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Dashboard - Overview</p>
+                <h3>Zonal Performance</h3>
+              </div>
+              <p class="panel-meta">Amount liquidation % by zone</p>
+            </div>
+            <div class="chart bars" id="zonal-performance"></div>
+          </article>
+
+          <article class="panel" data-page="Dashboard - Overview">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Dashboard - Overview</p>
+                <h3>Amount Slab Wise IA Liquidation</h3>
+              </div>
+            </div>
+            <div class="chart donut-wrap" id="slab-donut"></div>
+          </article>
+
+          <article class="panel" data-page="Dashboard - Overview">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Dashboard - Overview</p>
+                <h3>Amount Settled - Zone Wise</h3>
+              </div>
+            </div>
+            <div class="chart list-chart" id="zone-settled-share"></div>
+          </article>
+
+          <article class="panel panel-wide" data-page="Dashboard - Overview">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Dashboard - Overview</p>
+                <h3>Top 10 Contributors to IA Liquidation</h3>
+              </div>
+              <p class="panel-meta">Highest settled amount across offices</p>
+            </div>
+            <div class="chart bars" id="top-contributors"></div>
+          </article>
+
+          <article class="panel panel-wide" data-page="Amount pending">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Amount pending</p>
+                <h3>Amount Pending To Be Liquidated</h3>
+              </div>
+              <p class="panel-meta">Top pending offices in crore</p>
+            </div>
+            <div class="chart bars" id="pending-offices"></div>
+          </article>
+
+          <article class="panel panel-wide" data-page="Least performers">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Least performers</p>
+                <h3>Least Performing ROs</h3>
+              </div>
+              <p class="panel-meta">Lowest amount liquidation % with meaningful balances</p>
+            </div>
+            <div class="chart bars" id="least-performers"></div>
+          </article>
+
+          <article class="panel panel-wide" data-page="Top 10 RO">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Top 10 RO</p>
+                <h3>Top 10 ROs</h3>
+              </div>
+              <p class="panel-meta">Ranked by settled amount</p>
+            </div>
+            <div class="chart table-chart" id="top-ros"></div>
+          </article>
+
+          <article class="panel panel-wide" data-page="bottom 5 ZOs">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">bottom 5 ZOs</p>
+                <h3>Bottom 5 Zonal Offices</h3>
+              </div>
+              <p class="panel-meta">Lowest amount liquidation %</p>
+            </div>
+            <div class="chart bars" id="bottom-zones"></div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="data/dashboard-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
